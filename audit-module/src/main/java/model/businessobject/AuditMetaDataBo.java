@@ -1,9 +1,8 @@
-package com.berryjelly.ticket_service.model.businessobject;
+package model.businessobject;
 
 import java.time.LocalDateTime;
 
 public class AuditMetaDataBo {
-
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime lastModifiedAt;

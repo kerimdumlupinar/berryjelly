@@ -1,6 +1,7 @@
 package com.berryjelly.ticket_service.model.businessobject;
 
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
+import model.businessobject.AuditMetaDataBo;
 
 public class TicketBo {
 

@@ -1,12 +1,12 @@
 package com.berryjelly.ticket_service.service.impl;
 
 import com.berryjelly.ticket_service.mapper.TicketEntityMapper;
-import com.berryjelly.ticket_service.model.businessobject.AuditMetaDataBo;
 import com.berryjelly.ticket_service.model.businessobject.TicketBo;
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
 import com.berryjelly.ticket_service.model.entity.TicketEntity;
 import com.berryjelly.ticket_service.repository.TicketRepository;
 import com.berryjelly.ticket_service.service.TicketCreationService;
+import model.businessobject.AuditMetaDataBo;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
