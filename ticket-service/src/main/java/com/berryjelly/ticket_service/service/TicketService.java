@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public export TicketService {
+public interface TicketService {
 
     TicketBo save(TicketBo ticketBo);
     TicketBo findByResourceId(String resourceId);

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="audit-module" />
         <module name="user_service" />
+        <module name="export-module" />
       </profile>
       <profile name="Annotation profile for ticket-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
