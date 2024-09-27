@@ -1,9 +1,12 @@
 package com.berryjelly.ticket_service.model.businessobject;
 
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
+import exportutil.Exportable;
 import model.businessobject.AuditMetaDataBo;
 
-public class TicketBo {
+import java.util.List;
+
+public class TicketBo implements Exportable {
 
     private String resourceId;
     private AuditMetaDataBo meta;
@@ -58,5 +61,15 @@ public class TicketBo {
 
     public void setEstimatedEffort(Long estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
+    }
+
+    @Override
+    public List<String> getExportableColumnNames() {
+        return List.of(
+                "ResourceId",
+                "Status",
+                "Title",
+                "Description"
+        );
     }
 }
