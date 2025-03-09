@@ -11,5 +11,6 @@ public abstract class TicketEntityMapper {
     public abstract TicketBo mapEntityToBo(TicketEntity entity);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "createdAt", source = "meta.createdAt")
     public abstract TicketEntity mapBoToEntity(TicketBo bo);
 }

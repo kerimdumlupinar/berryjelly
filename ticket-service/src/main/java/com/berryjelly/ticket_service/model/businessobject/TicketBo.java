@@ -1,6 +1,7 @@
 package com.berryjelly.ticket_service.model.businessobject;
 
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import exportutil.Exportable;
 import model.businessobject.AuditMetaDataBo;
 
@@ -64,6 +65,7 @@ public class TicketBo implements Exportable {
     }
 
     @Override
+    @JsonIgnore
     public List<String> getExportableColumnNames() {
         return List.of(
                 "ResourceId",

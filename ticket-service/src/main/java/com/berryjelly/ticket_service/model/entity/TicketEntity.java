@@ -3,6 +3,8 @@ package com.berryjelly.ticket_service.model.entity;
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "TICKET")
 public class TicketEntity {
@@ -21,6 +23,9 @@ public class TicketEntity {
     private String description;
 
     private Long estimatedEffort;
+
+    private LocalDateTime createdAt;
+
 
     public Long getId() {
         return id;
@@ -68,5 +73,13 @@ public class TicketEntity {
 
     public void setEstimatedEffort(Long estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
