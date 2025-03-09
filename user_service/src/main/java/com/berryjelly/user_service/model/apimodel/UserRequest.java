@@ -1,11 +1,14 @@
-package com.berryjelly.user_service.model.businessobject;
+package com.berryjelly.user_service.model.apimodel;
 
-public class PersonBo {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class UserRequest {
 
     private String firstName;
     private String lastName;
     private String email;
-    private String companyCode;
+
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -31,11 +34,11 @@ public class PersonBo {
         this.email = email;
     }
 
-    public String getCompanyCode() {
-        return companyCode;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
