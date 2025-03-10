@@ -2,18 +2,11 @@ package com.berryjelly.ticket_service.model.entity;
 
 import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus;
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
+import model.entity.BaseEntity;
 
 @Entity
 @Table(name = "TICKET")
-public class TicketEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String resourceId;
+public class TicketEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private TicketStatus status;
@@ -24,24 +17,6 @@ public class TicketEntity {
 
     private Long estimatedEffort;
 
-    private LocalDateTime createdAt;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
 
     public TicketStatus getStatus() {
         return status;
@@ -73,13 +48,5 @@ public class TicketEntity {
 
     public void setEstimatedEffort(Long estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

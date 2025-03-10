@@ -2,18 +2,11 @@ package com.berryjelly.user_service.model.entity;
 
 import com.berryjelly.user_service.model.businessobject.constants.UserRole;
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
+import model.entity.BaseEntity;
 
 @Entity
 @Table(name = "APP_USER")
-public class UserEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String resourceId;
+public class UserEntity extends BaseEntity {
 
     private String firstName;
 
@@ -26,25 +19,7 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    private LocalDateTime createdAt;
-
     private String password;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -84,14 +59,6 @@ public class UserEntity {
 
     public void setRole(UserRole role) {
         this.role = role;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public String getPassword() {
