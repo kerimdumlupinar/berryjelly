@@ -7,12 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface TicketService {
+public interface TicketAssignmentService {
 
-    TicketBo save(TicketBo ticketBo);
-    TicketBo findByResourceId(String resourceId);
-    List<TicketBo> findAll();
-
-    TicketBo assign(TicketAssignmentRequest request);
-
+    TicketBo assignTicketToUsers(TicketAssignmentRequest request);
 }

@@ -15,6 +15,7 @@ public class TicketBo implements Exportable {
     private String title;
     private String description;
     private Long estimatedEffort;
+    private List<Long> assignedUserIds;
 
     public String getResourceId() {
         return resourceId;
@@ -62,6 +63,14 @@ public class TicketBo implements Exportable {
 
     public void setEstimatedEffort(Long estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
+    }
+
+    public List<Long> getAssignedUserIds() {
+        return assignedUserIds;
+    }
+
+    public void setAssignedUserIds(List<Long> assignedUserIds) {
+        this.assignedUserIds = assignedUserIds;
     }
 
     @Override

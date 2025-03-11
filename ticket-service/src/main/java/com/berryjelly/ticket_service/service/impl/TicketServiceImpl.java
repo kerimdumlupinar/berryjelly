@@ -1,6 +1,8 @@
 package com.berryjelly.ticket_service.service.impl;
 
+import com.berryjelly.ticket_service.model.apimodel.TicketAssignmentRequest;
 import com.berryjelly.ticket_service.model.businessobject.TicketBo;
+import com.berryjelly.ticket_service.service.TicketAssignmentService;
 import com.berryjelly.ticket_service.service.TicketCreationService;
 import com.berryjelly.ticket_service.service.TicketSearchService;
 import com.berryjelly.ticket_service.service.TicketService;
@@ -13,10 +15,12 @@ public class TicketServiceImpl implements TicketService {
 
     private final TicketCreationService ticketCreationService;
     private final TicketSearchService ticketSearchService;
+    private final TicketAssignmentService ticketAssignmentService;
 
-    public TicketServiceImpl(TicketCreationService ticketCreationService, TicketSearchService ticketSearchService) {
+    public TicketServiceImpl(TicketCreationService ticketCreationService, TicketSearchService ticketSearchService, TicketAssignmentService ticketAssignmentService) {
         this.ticketCreationService = ticketCreationService;
         this.ticketSearchService = ticketSearchService;
+        this.ticketAssignmentService = ticketAssignmentService;
     }
 
     @Override
@@ -32,5 +36,10 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public List<TicketBo> findAll() {
         return null;
+    }
+
+    @Override
+    public TicketBo assign(TicketAssignmentRequest request) {
+        return ticketAssignmentService.assignTicketToUsers(request);
     }
 }

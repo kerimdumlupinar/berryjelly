@@ -4,6 +4,8 @@ import com.berryjelly.ticket_service.model.businessobject.constants.TicketStatus
 import jakarta.persistence.*;
 import model.entity.BaseEntity;
 
+import java.util.List;
+
 @Entity
 @Table(name = "TICKET")
 public class TicketEntity extends BaseEntity {
@@ -16,6 +18,8 @@ public class TicketEntity extends BaseEntity {
     private String description;
 
     private Long estimatedEffort;
+
+    private List<Long> assignedUserIds;
 
 
     public TicketStatus getStatus() {
@@ -48,5 +52,13 @@ public class TicketEntity extends BaseEntity {
 
     public void setEstimatedEffort(Long estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
+    }
+
+    public List<Long> getAssignedUserIds() {
+        return assignedUserIds;
+    }
+
+    public void setAssignedUserIds(List<Long> assignedUserIds) {
+        this.assignedUserIds = assignedUserIds;
     }
 }

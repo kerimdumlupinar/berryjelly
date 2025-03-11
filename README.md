@@ -9,3 +9,4 @@ This project aims to deliver functionalities to:
 - Export tickets by specific preferences and file types
 - Perform dynamic search for tickets depending on various criteria
 - Attach files, comments, subtasks to a ticket
+- Track ticket history

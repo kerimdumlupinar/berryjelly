@@ -1,6 +1,7 @@
 package com.berryjelly.ticket_service.controller;
 
 import com.berryjelly.ticket_service.mapper.TicketApiModelMapper;
+import com.berryjelly.ticket_service.model.apimodel.TicketAssignmentRequest;
 import com.berryjelly.ticket_service.model.apimodel.TicketRequest;
 import com.berryjelly.ticket_service.model.businessobject.TicketBo;
 import com.berryjelly.ticket_service.service.TicketService;
@@ -25,6 +26,13 @@ public class TicketController {
 
     @PostMapping
     public TicketBo saveTicket(@RequestBody TicketRequest request){
+        //TODO refactor this to transfer business logic to a lower class
         return ticketService.save(ticketApiModelMapper.mapApiModelToBo(request));
+    }
+
+    @PutMapping("/assign")
+    public TicketBo assign(@RequestBody TicketAssignmentRequest request){
+
+        return ticketService.assign(request);
     }
 }
