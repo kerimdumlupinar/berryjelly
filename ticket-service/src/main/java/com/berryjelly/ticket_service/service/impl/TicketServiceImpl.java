@@ -1,8 +1,8 @@
 package com.berryjelly.ticket_service.service.impl;
 
+import com.berryjelly.ticket_service.kafka.TicketEventPublisher;
 import com.berryjelly.ticket_service.model.apimodel.TicketAssignmentRequest;
 import com.berryjelly.ticket_service.model.businessobject.TicketBo;
-import com.berryjelly.ticket_service.service.TicketAssignmentService;
 import com.berryjelly.ticket_service.service.TicketCreationService;
 import com.berryjelly.ticket_service.service.TicketSearchService;
 import com.berryjelly.ticket_service.service.TicketService;
@@ -15,12 +15,13 @@ public class TicketServiceImpl implements TicketService {
 
     private final TicketCreationService ticketCreationService;
     private final TicketSearchService ticketSearchService;
-    private final TicketAssignmentService ticketAssignmentService;
+    private final TicketEventPublisher ticketAssignmentEventPublisher;
 
-    public TicketServiceImpl(TicketCreationService ticketCreationService, TicketSearchService ticketSearchService, TicketAssignmentService ticketAssignmentService) {
+    public TicketServiceImpl(TicketCreationService ticketCreationService, TicketSearchService ticketSearchService,
+                             TicketEventPublisher ticketAssignmentEventPublisher) {
         this.ticketCreationService = ticketCreationService;
         this.ticketSearchService = ticketSearchService;
-        this.ticketAssignmentService = ticketAssignmentService;
+        this.ticketAssignmentEventPublisher = ticketAssignmentEventPublisher;
     }
 
     @Override
@@ -40,6 +41,6 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public void assign(TicketAssignmentRequest request) {
-        ticketAssignmentService.assignTicketToUsers(request);
+        ticketAssignmentEventPublisher.publishTicketAssignedEvent(request);
     }
 }

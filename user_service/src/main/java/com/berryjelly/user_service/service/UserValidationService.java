@@ -1,8 +1,7 @@
 package com.berryjelly.user_service.service;
 
 import com.berryjelly.user_service.repository.UserRepository;
-import model.messaging.kafkamodels.UserValidationRequest;
-import model.messaging.kafkamodels.UserValidationResponse;
+import model.messaging.kafkamodels.TicketAssignedV1;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -14,25 +13,22 @@ import java.util.stream.Collectors;
 public class UserValidationService {
 
     private final UserRepository userRepository;
-    private final KafkaTemplate<String, UserValidationResponse> kafkaTemplate;
+    private final KafkaTemplate<String, TicketAssignedV1> kafkaTemplate;
 
     public UserValidationService(UserRepository userRepository,
-                                 KafkaTemplate<String, UserValidationResponse> kafkaTemplate) {
+                                 KafkaTemplate<String, TicketAssignedV1> kafkaTemplate) {
         this.userRepository = userRepository;
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @KafkaListener(topics = "user-validation-requests", groupId = "user-service-group")
-    public void validateUsers(UserValidationRequest request){
+    public void validateUsers(TicketAssignedV1 event){
 
-        List<Long> validUsers = request.getUserIds().stream()
+        List<Long> validUsers = event.getUserIds().stream()
                 .filter(userRepository::existsById)
                 .collect(Collectors.toList());
 
-        UserValidationResponse response = new UserValidationResponse();
-        response.setRequestId(request.getRequestId());
-        response.setUserIds(request.getUserIds());
-        response.setValidUserIds(validUsers);
-        kafkaTemplate.send("user-validation-responses", response);
+        event.setValidUserIds(validUsers);
+        kafkaTemplate.send("user-validation-responses", event);
     }
 }
