@@ -39,7 +39,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketBo assign(TicketAssignmentRequest request) {
-        return ticketAssignmentService.assignTicketToUsers(request);
+    public void assign(TicketAssignmentRequest request) {
+        ticketAssignmentService.assignTicketToUsers(request);
     }
 }

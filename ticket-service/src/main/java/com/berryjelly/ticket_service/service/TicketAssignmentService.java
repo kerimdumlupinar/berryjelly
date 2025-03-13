@@ -9,5 +9,6 @@ import java.util.List;
 @Service
 public interface TicketAssignmentService {
 
-    TicketBo assignTicketToUsers(TicketAssignmentRequest request);
+    void assignTicketToUsers(TicketAssignmentRequest request);
+
 }

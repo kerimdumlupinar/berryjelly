@@ -31,8 +31,8 @@ public class TicketController {
     }
 
     @PutMapping("/assign")
-    public TicketBo assign(@RequestBody TicketAssignmentRequest request){
+    public void assign(@RequestBody TicketAssignmentRequest request){
 
-        return ticketService.assign(request);
+        ticketService.assign(request);
     }
 }

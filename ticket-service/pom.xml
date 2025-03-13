@@ -69,6 +69,12 @@
 			<artifactId>export-module</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+
 
 	</dependencies>
 

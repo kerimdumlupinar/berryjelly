@@ -13,6 +13,6 @@ public interface TicketService {
     TicketBo findByResourceId(String resourceId);
     List<TicketBo> findAll();
 
-    TicketBo assign(TicketAssignmentRequest request);
+    void assign(TicketAssignmentRequest request);
 
 }
